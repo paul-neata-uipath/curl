@@ -34,31 +34,29 @@ echo.
 
 echo Building x86 config in a different window, please stand by ...
 rem if you need to see something from the output just ad an ^&^& pause  after nmake command
-start /wait cmd /c call %VCVARSALL% x86 ^&^& nmake /f Makefile.vc mode=dll GEN_PDB=yes MACHINE=x86 ^&^& pause || ( call :last_message "Cannot compile on x86" & exit /b 11 )
+start /wait cmd /c call %VCVARSALL% x86 ^&^& nmake /f Makefile.vc mode=dll GEN_PDB=yes MACHINE=x86 || ( call :last_message "Cannot compile on x86" & exit /b 11 )
 
 
 echo Building x64 config in a different window, please stand by ...
 rem if you need to see something from the output just ad an ^&^& pause  after nmake command
-start /wait cmd /c call %VCVARSALL% x64 ^&^& nmake /f Makefile.vc mode=dll GEN_PDB=yes MACHINE=x64 ^&^& pause || ( call :last_message "Cannot compile on x64" & exit /b 12 )
+start /wait cmd /c call %VCVARSALL% x64 ^&^& nmake /f Makefile.vc mode=dll GEN_PDB=yes MACHINE=x64 || ( call :last_message "Cannot compile on x64" & exit /b 12 )
 
 echo.
 echo Populating Compiled folder
 rmdir /s /q %COMPILED_FOLDER%\curl      > nul 2>&1
-mkdir %COMPILED_FOLDER%\curl                   || ( call :last_message "cannot create curl inlcude dir" & exit /b 24 )
-
-echo Populating Compiled folder --- 4 %COMPILED_FOLDER%\dll\win32
-copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\bin\libcurl.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 31 )
-echo Populating Compiled folder --- 5
-copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 32 )
-echo Populating Compiled folder --- 6
-copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-winssl\bin\libcurl.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 33 )
-echo Populating Compiled folder --- 7
-copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-winssl\lib\libcurl.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 34 )
-echo Populating Compiled folder --- 8
-copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\include\curl\*.* %COMPILED_FOLDER%\curl   || ( call :last_message "cannot copy new curl includes" & exit /b 35 )
-echo Populating Compiled folder --- 9
+del /q %COMPILED_FOLDER%\*.lib          > nul 2>&1
+del /q %COMPILED_FOLDER%\*.dll          > nul 2>&1
+del /q %COMPILED_FOLDER%\*.pdb          > nul 2>&1
+mkdir %COMPILED_FOLDER%\curl            || ( call :last_message "cannot create curl inlcude dir" & exit /b 24 )
 
 
+copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\bin\libcurl_x86.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 31 )
+copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\lib\libcurl_x86.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 32 )
+copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-winssl\bin\libcurl_x64.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 33 )
+copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-winssl\lib\libcurl_x64.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 34 )
+copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\include\curl\*.* %COMPILED_FOLDER%\curl     || ( call :last_message "cannot copy new curl includes" & exit /b 35 )
+
+del /q %COMPILED_FOLDER%\*.exp               rem > nul 2>&1
 
 
 
