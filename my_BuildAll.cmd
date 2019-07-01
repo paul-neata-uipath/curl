@@ -1,16 +1,13 @@
 @echo off
 rem 
-rem Script for building Driver dependencies directly from sources
-rem 
-rem At the end, each dependencie is copied in the Compiled folder and you should commit the dependencies by yourself.
-rem 
-rem The folder Compiled has the structure: include, dll, lib
-rem In include, scripts put include files making a folder for each dep.
-rem In the end you will put a vcxproj setting for C-include-dir Compiled\include and in the source code you will write something like #include <curl\curl.h>
-rem In dll go dlls along with their implibs and pdbs, structured by platform
-rem In lib go only static libs. This design permits that for a dependencie to build a dll and also a static libary.
+rem Script for building cul Driver dependency curl repo
+rem At the end files are copied in Compiled folder, then nuget.exe is invoked for creating a .nupkg
+rem Please commit all the files and also the nuget package.
 rem 
 rem 
+
+set NUGET_EXE=d:\driver\.nuget\nuget.exe
+set CRT_VERSION=7.65.1.0
 
 cls
 pushd %~dp0
@@ -19,7 +16,9 @@ pushd %~dp0
 call my_build_curl.cmd || ( call :inform_about "curl" & exit /b 1 )
 rem add other script invokes here
 
+echo Creating nuget package
 
+%NUGET_EXE% pack -Version %CRT_VERSION% -Symbols -NoPackageAnalysis -OutputDirectory Compiled UiPath.Driver.Curl.nuspec -Prop OutputPath=Compiled\  || ( call :inform_about "nuget package" & exit /b 1 )
 
 echo.
 echo.

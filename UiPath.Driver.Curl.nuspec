@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UiPath.Driver.Curl</id>
+    <version>7.65.1.0</version>
+    <title>UiPath.Driver.Curl</title>
+    <authors>UiPath</authors>
+    <owners>UiPath</owners>
+    <summary>Curl to be used in UiPath Driver</summary>
+    <description>Curl to be used in UiPath Driver</description>
+    <language>en-US</language>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://curl.haxx.se/docs/copyright.html</licenseUrl>
+    <projectUrl>https://curl.haxx.se/</projectUrl>
+    <iconUrl>https://curl.haxx.se/favicon.ico</iconUrl>
+    <tags>curl</tags>
+  </metadata>
+  <files>
+    
+    <!--tools-->
+    <!--file src="nuget\build\UiPath.Common.targets" target="build" /-->
+
+    <!--x86-->
+    <file src="$OutputPath$libcurl_x86.dll" target="build\curl\lib\release_x86" />
+    <file src="$OutputPath$libcurl_x86.lib" target="build\curl\lib\release_x86" />
+    <file src="$OutputPath$libcurl_x86.pdb" target="build\curl\lib\release_x86" />
+	
+	<!--x64-->
+    <file src="$OutputPath$libcurl_x64.dll" target="build\curl\lib\release_x64" />
+    <file src="$OutputPath$libcurl_x64.lib" target="build\curl\lib\release_x64" />
+    <file src="$OutputPath$libcurl_x64.pdb" target="build\curl\lib\release_x64" />
+	
+	<!--include-->
+	<file src="$OutputPath$curl\**" target="build\curl\include\curl\" />
+
+	<!--Placehoder file to create lib folder in package-->
+    <!--file src="nuget\_._" target="lib" /-->
+		
+  </files>
+</package>
