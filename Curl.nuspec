@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>UiPath.Driver.Curl</id>
+    <id>Curl</id>
     <version>7.65.1.0</version>
-    <title>UiPath.Driver.Curl</title>
+    <title>Curl</title>
     <authors>UiPath</authors>
     <owners>UiPath</owners>
-    <summary>Curl to be used in UiPath Driver</summary>
-    <description>Curl to be used in UiPath Driver</description>
+    <summary>Curl for Windows platform</summary>
+    <description>Curl for Windows platform</description>
     <language>en-US</language>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://curl.haxx.se/docs/copyright.html</licenseUrl>
     <projectUrl>https://curl.haxx.se/</projectUrl>
+    <repository url="https://github.com/paul-neata-uipath/curl" branch="my_curl-7_65_1" />
     <iconUrl>https://curl.haxx.se/favicon.ico</iconUrl>
     <tags>curl</tags>
   </metadata>
