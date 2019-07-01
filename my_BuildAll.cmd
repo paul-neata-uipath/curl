@@ -18,7 +18,7 @@ rem add other script invokes here
 
 echo Creating nuget package
 
-%NUGET_EXE% pack -Version %CRT_VERSION% -Symbols -NoPackageAnalysis -OutputDirectory Compiled Curl.nuspec -Prop OutputPath=Compiled\  || ( call :inform_about "nuget package" & exit /b 1 )
+%NUGET_EXE% pack -Version %CRT_VERSION% -Symbols -NoPackageAnalysis -OutputDirectory Compiled UiPath.Curl.nuspec -Prop OutputPath=Compiled\  || ( call :inform_about "nuget package" & exit /b 1 )
 
 echo.
 echo.

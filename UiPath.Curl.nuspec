@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Curl</id>
+    <id>UiPath.Curl</id>
     <version>7.65.1.0</version>
-    <title>Curl</title>
+    <title>UiPath.Curl</title>
     <authors>UiPath</authors>
     <owners>UiPath</owners>
     <summary>Curl for Windows platform</summary>
@@ -19,7 +19,7 @@
   <files>
     
     <!--tools-->
-    <!--file src="nuget\build\UiPath.Common.targets" target="build" /-->
+    <file src="$OutputPath$curl.targets" target="build\curl" />
 
     <!--x86-->
     <file src="$OutputPath$libcurl_x86.dll" target="build\curl\lib\release_x86" />
