@@ -34,12 +34,12 @@ echo.
 
 echo Building x86 config in a different window, please stand by ...
 rem if you need to see something from the output just ad an ^&^& pause  after nmake command
-start /wait cmd /c call %VCVARSALL% x86 ^&^& nmake /f Makefile.vc mode=dll GEN_PDB=yes MACHINE=x86 || ( call :last_message "Cannot compile on x86" & exit /b 11 )
+start /wait cmd /c call %VCVARSALL% x86 ^&^& nmake /f Makefile.vc mode=dll RTLIBCFG=static GEN_PDB=yes MACHINE=x86 || ( call :last_message "Cannot compile on x86" & exit /b 11 )
 
 
 echo Building x64 config in a different window, please stand by ...
 rem if you need to see something from the output just ad an ^&^& pause  after nmake command
-start /wait cmd /c call %VCVARSALL% x64 ^&^& nmake /f Makefile.vc mode=dll GEN_PDB=yes MACHINE=x64 || ( call :last_message "Cannot compile on x64" & exit /b 12 )
+start /wait cmd /c call %VCVARSALL% x64 ^&^& nmake /f Makefile.vc mode=dll RTLIBCFG=static GEN_PDB=yes MACHINE=x64 || ( call :last_message "Cannot compile on x64" & exit /b 12 )
 
 echo.
 echo Populating Compiled folder

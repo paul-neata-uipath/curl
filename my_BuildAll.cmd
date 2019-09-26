@@ -7,7 +7,7 @@ rem
 rem 
 
 set NUGET_EXE=d:\driver\.nuget\nuget.exe
-set CRT_VERSION=7.65.1.0
+set CRT_VERSION=7.65.1.1
 
 cls
 pushd %~dp0
