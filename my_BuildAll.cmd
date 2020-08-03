@@ -6,8 +6,8 @@ rem Please commit all the files and also the nuget package.
 rem 
 rem 
 
-set NUGET_EXE=d:\driver\.nuget\nuget.exe
-set CRT_VERSION=7.65.1.1
+set NUGET_EXE=c:\src\driver\.nuget\nuget.exe
+set CRT_VERSION=7.65.1.2
 
 cls
 pushd %~dp0

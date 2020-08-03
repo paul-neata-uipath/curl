@@ -390,12 +390,17 @@ CFGSET = true
 
 # CURL_XX macros are for the curl.exe command
 
+P_ARCH = x86
+!IF "$(MACHINE)"=="x64"
+P_ARCH = ia64
+!ENDIF
+
 !IF "$(DEBUG)"=="yes"
-RC_FLAGS = /dDEBUGBUILD=1 /Fo $@ $(LIBCURL_SRC_DIR)\libcurl.rc
+RC_FLAGS = /dMACHINE=$(MACHINE) /dP_ARCH=$(P_ARCH) /dDEBUGBUILD=1 /Fo $@ $(LIBCURL_SRC_DIR)\libcurl.rc
 CURL_CC       = $(CC_DEBUG) $(RTLIB_DEBUG)
 CURL_RC_FLAGS = /i../include /dDEBUGBUILD=1 /Fo $@ $(CURL_SRC_DIR)\curl.rc
 !ELSE
-RC_FLAGS = /dDEBUGBUILD=0 /Fo $@ $(LIBCURL_SRC_DIR)\libcurl.rc
+RC_FLAGS = /dMACHINE=$(MACHINE) /dP_ARCH=$(P_ARCH) /dDEBUGBUILD=0 /Fo $@ $(LIBCURL_SRC_DIR)\libcurl.rc
 CURL_CC       = $(CC_NODEBUG) $(RTLIB)
 CURL_RC_FLAGS = /i../include /dDEBUGBUILD=0 /Fo $@ $(CURL_SRC_DIR)\curl.rc
 !ENDIF
