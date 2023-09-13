@@ -16,7 +16,7 @@ rem Because vcvarsall.bat cannot be ran twice in the same cmd we use a different
 rem 
 
 set CURL_DIR=%~dp0
-set VS=C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional
+set VS=C:\Program Files\Microsoft Visual Studio\2022\Professional
 set VCVARSALL="%VS%\VC\Auxiliary\Build\vcvarsall.bat"
 set COMPILED_FOLDER=%CURL_DIR%Compiled
 set MARK=%~nx0 --------------------------------------------------------------
