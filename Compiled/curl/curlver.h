@@ -42,7 +42,7 @@
 
 #if 1 // Special for UiPath
 
-#define LIBCURL_VERSION_SUB_PATCH 0
+#define LIBCURL_VERSION_SUB_PATCH 1
 
 #define LIBCURL_NAME_SUFFIX MACHINE
 #define LIBCURL_P_ARCH  P_ARCH
