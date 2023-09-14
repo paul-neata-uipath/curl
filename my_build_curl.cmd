@@ -50,11 +50,11 @@ del /q %COMPILED_FOLDER%\*.pdb          > nul 2>&1
 mkdir %COMPILED_FOLDER%\curl            || ( call :last_message "cannot create curl inlcude dir" & exit /b 24 )
 
 
-copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\bin\libcurl_x86.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 31 )
-copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\lib\libcurl_x86.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 32 )
-copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-winssl\bin\libcurl_x64.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 33 )
-copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-winssl\lib\libcurl_x64.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 34 )
-copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\include\curl\*.* %COMPILED_FOLDER%\curl     || ( call :last_message "cannot copy new curl includes" & exit /b 35 )
+copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-schannel\bin\libcurl_x86.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 31 )
+copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-schannel\lib\libcurl_x86.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 32 )
+copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-schannel\bin\libcurl_x64.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 33 )
+copy %CURL_DIR%builds\libcurl-vc-x64-release-dll-ipv6-sspi-schannel\lib\libcurl_x64.* %COMPILED_FOLDER%         || ( call :last_message "cannot copy new curl" & exit /b 34 )
+copy %CURL_DIR%builds\libcurl-vc-x86-release-dll-ipv6-sspi-schannel\include\curl\*.* %COMPILED_FOLDER%\curl     || ( call :last_message "cannot copy new curl includes" & exit /b 35 )
 
 del /q %COMPILED_FOLDER%\*.exp               rem > nul 2>&1
 
