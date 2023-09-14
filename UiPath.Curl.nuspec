@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://curl.haxx.se/docs/copyright.html</licenseUrl>
     <projectUrl>https://curl.haxx.se/</projectUrl>
-    <repository url="https://github.com/paul-neata-uipath/curl" branch="my_curl-7_65_1" />
+    <repository url="https://github.com/paul-neata-uipath/curl" branch="my_curl-8_3_0" />
     <iconUrl>https://curl.haxx.se/favicon.ico</iconUrl>
     <tags>curl</tags>
   </metadata>
