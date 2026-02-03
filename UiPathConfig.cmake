@@ -15,6 +15,9 @@ endif()
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Zi")
 set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
 
+# Disable linker-generated manifest (we have our own in libcurl.rc)
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /MANIFEST:NO")
+
 # Set custom output name for libcurl if specified
 if(DEFINED LIBCURL_OUTPUT_NAME)
     set(CMAKE_SHARED_LIBRARY_PREFIX "")
