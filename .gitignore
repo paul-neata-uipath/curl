@@ -69,3 +69,6 @@ scripts/curl.fish
 tests/string
 tests/config
 tests/ech-log/
+build_x86/
+build_x64/
+!Compiled/*
